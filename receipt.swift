@@ -6,7 +6,7 @@ struct Item {
     var portion = 1
 
     var total: Double {
-        price * (1 / Double(portion))
+        price / Double(portion)
     }
 
     // override division
