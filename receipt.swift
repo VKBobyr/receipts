@@ -9,7 +9,7 @@ struct Item {
         price / Double(portion)
     }
 
-    // override division
+    // custom division operator for splitting items
     static func / (lhs: Item, rhs: Int) -> Item {
         var result = lhs
         result.portion = result.portion * rhs
