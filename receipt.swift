@@ -44,6 +44,8 @@ struct Payer {
         let tip = total * 0.2
 
         let receipt = """
+        =============================
+        
         # \(name)
 
         ## Items:
@@ -56,7 +58,7 @@ struct Payer {
         ## Total: 
         \((total + tax + tip).asPrice)
 
-        ---
+-
         """
 
         print(receipt)
