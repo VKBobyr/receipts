@@ -1,10 +1,12 @@
+import Foundation
+
 struct Item {
     let name: String
-    let price: Float
+    let price: Double
     var portion = 1
 
-    var total: Float {
-        price * (1 / Float(portion))
+    var total: Double {
+        price * (1 / Double(portion))
     }
 
     // override division
@@ -18,7 +20,13 @@ struct Item {
 extension Item: CustomStringConvertible {
     var description: String {
         let portion = portion == 1 ? "" : "1/\(portion) "
-        return "\(portion)\(name): $\(total)"
+        return "\(portion)\(name): \(total.asPrice)"
+    }
+}
+
+extension Double {
+    var asPrice: String {
+        String(format: "$%.2f", self)
     }
 }
 
@@ -26,7 +34,7 @@ struct Payer {
     let name: String
     let items: [Item]
 
-    var total: Float {
+    var total: Double {
         items.reduce(0) { $0 + $1.total }
     }
 
@@ -41,12 +49,12 @@ struct Payer {
         ## Items:
         \(itemReceipt)
 
-        ## Subtotal: $\(total)
-        ## Tax (10.2%): $\(tax)
-        ## Tip (20%): $\(tip)
+        ## Subtotal: \(total.asPrice)
+        ## Tax (10.2%): \(tax.asPrice)
+        ## Tip (20%): \(tip.asPrice)
 
         ## Total: 
-        $\(total + tax + tip)
+        \((total + tax + tip).asPrice)
 
         ---
         """
