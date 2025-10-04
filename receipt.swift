@@ -45,7 +45,7 @@ struct Payer {
 
         let receipt = """
         =============================
-        
+
         # \(name)
 
         ## Items:
@@ -58,7 +58,7 @@ struct Payer {
         ## Total: 
         \((total + tax + tip).asPrice)
 
--
+
         """
 
         print(receipt)
@@ -80,18 +80,19 @@ let alan = Payer(
     items: [
         crispyCalamari / 4,
         takoyaki / 4,
+        teaPot / 4,
         blueFinTuna,
         prawnRamen,
-        teaPot / 4,
     ]
 )
 
 let andrew = Payer(
     name: "Andrew",
     items: [
-        tonkotsuRamen,
+        crispyCalamari / 4,
         teaPot / 4,
         takoyaki / 4,
+        tonkotsuRamen,
         salmonKing,
     ]
 )
@@ -99,10 +100,10 @@ let andrew = Payer(
 let kristinVova = Payer(
     name: "Kristin & Vova",
     items: [
-        sushiDinner,
-        salmonKing,
+        crispyCalamari / 2,
         takoyaki / 2,
         teaPot / 2,
+        sushiDinner,
         salmonLover,
     ]
 )
